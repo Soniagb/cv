@@ -1,0 +1,22 @@
+@mixin box_sizing($box_model: border-box){
+	-webkit-box-sizing: $box_model;
+	-moz-box-sizing: $box_model;
+	box-sizing: $box_model;
+}
+
+@mixin border_radius($boder-radius){
+	-webkit-border-radius: $boder-radius;
+	-moz-border-radius: $boder-radius;
+	border-radius: $boder-radius;
+}
+
+@mixin wrapperMaxWidth($maxWidth, $padding: 0){
+	@include box_sizing();
+	margin: 0 auto;
+	max-width: $maxWidth;
+	width: 100%;
+
+	@media screen and (max-width: $maxWidth){
+		padding: $padding; //TODO: cambiar a mobile first > padding en el principal y en el media-query marcar el por defecto, es decir, traer de nuevo el parámetro
+	}
+}

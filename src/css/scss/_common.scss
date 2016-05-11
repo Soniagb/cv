@@ -1,0 +1,73 @@
+/*reset*/
+body, html{ font-size: 100%; margin: 0; padding: 0;}h1, h2, h3, h4, h5, h6{font-size: 1em; margin: 0}img{vertical-align: top}
+
+body{
+	background: #f1f1f1;
+}
+
+/*Common styles*/
+@font-face {
+    font-family: 'Century Gotic';
+    //src: url('../font/savoyeletplain-webfont.eot');
+    src: url('../font/century_gothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+
+//placeholders
+%ir{
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+%ul_reseted{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+///////////////////////
+
+.main_header{
+	background: $white;
+	border-top: 4px solid $mainColor;
+
+	nav ul{
+		@extend %ul_reseted;
+	}
+}
+
+h1.main_title{
+	@include border_radius(7px);
+	background: $mainColor;
+	color: $white;
+	display: inline-block;
+}
+
+.logo{
+	@extend %ir;
+	background: url(../images/logo.png) no-repeat;
+	background-size: cover;
+	display: inline-block;
+    height: 5.063em; //81px/16px
+    width: 13.750em; // 220px/16px 
+}
+
+.wrapper{
+	@include wrapperMaxWidth(960px, 0 10%);
+}
+
+
+@media screen and (min-width: 750px){
+	.main_header {
+		height: 4.188em; /* 67px/16px */
+		> div {
+			text-align: left;
+			nav {
+				float: right;
+				li{
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
